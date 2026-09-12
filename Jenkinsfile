@@ -46,7 +46,7 @@ pipeline {
 
     stage('Approve') {
       steps {
-        input message: "Apply ${params.ENV} plan?", ok: 'Apply'
+        input message: "Please Michael ba4a, can u apply ${params.ENV} plan?", ok: 'Yes ba4a, Apply'
       }
     }
 
