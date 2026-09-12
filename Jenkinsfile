@@ -61,12 +61,11 @@ pipeline {
   post {
     success {
       echo "SUCCESS: ${params.ENV} applied."
-      // Configure SMTP in Jenkins for real mail:
-      // mail to: 'team@example.com', subject: "SUCCESS: ${env.JOB_NAME} ${params.ENV}", body: "Apply succeeded. ${env.BUILD_URL}"
+      mail to: 'michaelhany0303@gmail.com', subject: "SUCCESS: ${env.JOB_NAME} ${params.ENV} #${env.BUILD_NUMBER}", body: "Apply succeeded.\nJob: ${env.JOB_NAME}\nEnv: ${params.ENV}\nBuild: ${env.BUILD_URL}\nOutputs: see console log."
     }
     failure {
       echo "FAIL: ${params.ENV} failed."
-      // mail to: 'team@example.com', subject: "FAIL: ${env.JOB_NAME} ${params.ENV}", body: "Apply failed. ${env.BUILD_URL}"
+      mail to: 'michaelhany0303@gmail.com', subject: "FAIL: ${env.JOB_NAME} ${params.ENV} #${env.BUILD_NUMBER}", body: "Apply failed.\nJob: ${env.JOB_NAME}\nEnv: ${params.ENV}\nBuild: ${env.BUILD_URL}\nCheck console output."
     }
   }
 }
